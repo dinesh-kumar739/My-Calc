@@ -1,12 +1,13 @@
 const buttons=document.querySelectorAll(".btns");
 const display=document.querySelector("#screen");
 const show=document.querySelector('[data-value="="]');
+const c=document.querySelector('[data-value="c"]');
 
 let screen="";
 
 buttons.forEach((btn)=>{
     btn.addEventListener("click",()=>{
-        if(btn.dataset.value!=="="){
+        if(btn.dataset.value!=="=" && btn.dataset.value!="c"){
             screen+=btn.dataset.value;
             console.log(screen);
             display.innerText=screen;
@@ -23,7 +24,11 @@ show.addEventListener("click",()=>{
         screen=val;
     }
     catch{
-        display.innerText="Enter Valid Input .";
+        display.innerText="Error.";
         screen="";
     }
+});
+c.addEventListener("click",()=>{
+    screen="";
+    display.innerText="";
 });
